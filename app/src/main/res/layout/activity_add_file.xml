@@ -10,43 +10,53 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="20dp">
-
-
+        android:layout_marginHorizontal="@dimen/margin_top"
+        android:layout_marginTop="@dimen/margin_top">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:text="Nama File : "
-            android:layout_marginTop="20dp"
-            android:textSize="12sp"/>
-
+            android:layout_marginTop="@dimen/margin_top"
+            android:text="@string/note_name"
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
         <EditText
-            android:id="@+id/editFilename"
+            android:id="@+id/editFilenama"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:padding="5dp"
-            android:singleLine="true"
-            android:textSize="14sp"/>
-
+            android:layout_marginTop="@dimen/margin_top"
+            android:layout_height="50dp"
+            android:background="@drawable/roundededittext"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
-            android:text="Notes"
-            android:textSize="12sp"/>
-
+            android:layout_marginTop="@dimen/margin_top"
+            android:text="@string/note"
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
         <EditText
-            android:id="@+id/editContent"
+            android:id="@+id/editKeterangan"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:inputType="textMultiLine"
             android:gravity="top"
-            android:padding="5dp"
-            android:textSize="14sp"/>
+            android:layout_weight="1"
+            android:background="@drawable/roundededittext"
+            android:layout_marginTop="@dimen/margin_top"
+            android:layout_marginBottom="@dimen/margin_top"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/margin_top">
+            <Button
+                android:id="@+id/btnSimpan"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="@dimen/margin_top"
+                android:text="Simpan"
+                android:background="@drawable/roundedbutton"
+                android:textColor="@color/white"/>
+        </LinearLayout>
 
     </LinearLayout>
 </LinearLayout>
