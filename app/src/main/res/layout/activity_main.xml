@@ -20,8 +20,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_margin="@dimen/margin_fab"
+        android:layout_marginBottom="@dimen/margin_fab"
+        android:layout_marginEnd="@dimen/margin_fab"
+        android:layout_marginStart="@dimen/margin_fab"
+        android:layout_marginTop="@dimen/margin_fab"
         android:clickable="true"
+        app:backgroundTint="#ff9100"
         app:srcCompat="@android:drawable/ic_input_add" />
 
 </RelativeLayout>

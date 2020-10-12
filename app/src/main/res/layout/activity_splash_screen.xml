@@ -16,7 +16,7 @@
             android:layout_height="200dp"
             android:adjustViewBounds="true"
             android:fitsSystemWindows="true"
-            android:src="@drawable/icon"
+            android:src="@drawable/icon2"
             android:layout_gravity="center"/>
 
     </LinearLayout>

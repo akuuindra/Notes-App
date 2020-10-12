@@ -19,7 +19,10 @@ import android.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -45,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, AddFileActivity.class);
-                Map<String, Object> data = (Map < String, Object >)
-                parent.getAdapter().getItem(position);
+                Map<String, Object> data = (Map<String, Object>)
+                        parent.getAdapter().getItem(position);
                 intent.putExtra("Filename", data.get("name").toString());
                 Toast.makeText(MainActivity.this, "Anda memilih " + data.get("name"), Toast.LENGTH_SHORT).show();
                 startActivity(intent);
@@ -65,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Map<String, Object> data = (Map < String, Object >)
-                parent.getAdapter().getItem(position);
+                Map<String, Object> data = (Map<String, Object>)
+                        parent.getAdapter().getItem(position);
                 tampilkanDialogKonfirmasiHapusCatatan(data.get("name").toString());
                 return true;
             }
@@ -93,11 +96,11 @@ public class MainActivity extends AppCompatActivity {
                 ActivityCompat.requestPermissions(this, new
                         String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE_STORAGE);
                 return false;
-             }
-            }else{
-            return true;
             }
+        } else {
+            return true;
         }
+    }
 
 
     @Override
@@ -140,45 +143,48 @@ public class MainActivity extends AppCompatActivity {
             simpleAdapter.notifyDataSetChanged();
         }
     }
-       /* @Override
-        public boolean onCreateOptionsMenu (Menu menu){
-            getMenuInflater().inflate(R.menu.menu, menu);
-            return true;
-        }
-       @Override
-        public boolean onOptionsItemSelected (MenuItem item){
-            switch (item.getItemId()) {
-                case R.id.buttonAdd:
-                    Intent intent = new Intent(this, AddFileActivity.class);
-                    startActivity(intent);
-                    break;
-            }
-            return super.onOptionsItemSelected(item);
-        }*/
-        void tampilkanDialogKonfirmasiHapusCatatan ( final String filename){
-            new AlertDialog.Builder(this)
-                    .setTitle("Hapus catatan ini ?")
-                    .setMessage("Apakah anda yakin ingin menghapus catatan " + filename + "?")
-                    .setIcon(android.R.drawable.ic_dialog_alert)
-                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int whichButton) {
-                            hapusFile(filename);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.no, null).show();
-        }
 
-        void hapusFile (String filename){
-            String appName = getResources().getString(R.string.app_name);
-            String path = Environment.getExternalStorageDirectory().toString() + "/" + appName;
-            File file = new File(path, filename);
-            if (file.exists()) {
-                file.delete();
-            }
-            mengambillistFilePadaFolder();
-        }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_tambah:
+                Intent intent = new Intent(this, AddFileActivity.class);
+                startActivity(intent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    void tampilkanDialogKonfirmasiHapusCatatan(final String filename) {
+        new AlertDialog.Builder(this)
+                .setTitle("Hapus catatan ini ?")
+                .setMessage("Apakah anda yakin ingin menghapus catatan " + filename + "?")
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        hapusFile(filename);
+                    }
+                })
+                .setNegativeButton(android.R.string.no, null).show();
+    }
+
+    void hapusFile(String filename) {
+        String appName = getResources().getString(R.string.app_name);
+        String path = Environment.getExternalStorageDirectory().toString() + "/" + appName;
+        File file = new File(path, filename);
+        if (file.exists()) {
+            file.delete();
+        }
+        mengambillistFilePadaFolder();
+    }
+}
 
 /*import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

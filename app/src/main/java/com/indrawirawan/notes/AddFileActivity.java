@@ -120,6 +120,14 @@ public class AddFileActivity extends AppCompatActivity implements View.OnClickLi
 
             tempCatatan = text.toString();
             edtContent.setText(text.toString());
+
+           /* String data = text.toString();
+            String[] dataUser = data.split(";");
+            username.setText(dataUser[0]);
+            email.setText(dataUser[2]);
+            nama.setText(dataUser[3]);
+            asalSekolah.setText(dataUser[4]);
+            alamat.setText(dataUser[5]);*/
         }
     }
 
