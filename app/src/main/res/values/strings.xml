@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Notes</string>
+    <string name="media_unavailable">External storage is not available</string>
+</resources>
